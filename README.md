@@ -1,2 +1,3 @@
-# it-hao.github.io
-Hao Shen's site
+## Welcome to Hao Shen's Home Pages
+
+Homepage: https://it-hao.github.io/
