@@ -17,6 +17,21 @@
     .imgtable img {
         align-self: center;
     }
+    .news {
+        overflow: auto;         /* 出现滚动条 */
+        height: 100px;          /* 固定高度，只显示一部分 */
+        width: 99%;
+        padding-top: 6px;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* 移动端字体更大些 */
+    @media (max-width: 600px) {
+        .news {
+            font-size: 1.2rem;
+        }
+    }
 </style>
 </head>
 <body>
@@ -54,7 +69,8 @@
 <div id="News">
     <h2>News</h2>
     <HR color=#F0F0F0 width="90%" SIZE=1>
-    <div class="news" style="overflow:auto; height:100px; Width:99%;padding-top:6px;font-size:100%;">
+    <!-- <div class="news" style="overflow:auto; height:100px; Width:99%;padding-top:6px;font-size:100%;"> -->
+    <div class="news">
     <ul>
     <li>[06, 2025] One paper is accepted by <b> IEEE TIP </b>.</li>   
     <li>[05, 2025] One paper is accepted by <b> The Visual Computer </b>.</li>
