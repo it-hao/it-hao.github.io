@@ -8,7 +8,8 @@ html {
 }
 
 body {
-  font-family: Georgia, serif;
+/*  font-family: Georgia, serif;*/
+  font-family: Arial, sans-serif;
   color: #000;
   background-color: #ffffff;
   text-align:left; /* for IE */
@@ -68,7 +69,7 @@ pre, tt {
 }
 
 a, a > tt {
-	color: #224b8d;
+	color: #476EA1;
 	text-decoration: none;
 }
 
@@ -377,3 +378,4 @@ table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
 }
+
