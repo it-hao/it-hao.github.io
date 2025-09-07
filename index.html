@@ -133,43 +133,27 @@
             line-height: 1.4;
         }
         
-        /*.profile-contact {
-            justify-content: center;
-            margin-top: 20px;
-        }*/
-        
-        .contact-item {
+        /* 社交链接独立一行，居中 */
+        .social-links {
             display: flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            gap: 3rem;
+            width: 100%;
+        }
+
+        /* 社交按钮样式优化 */
+        .social-btn {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            /*display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            width: 100%;*/
-        }
-        
-        .contact-icon {
-            width: 24px;
-            text-align: left;
-            margin-right: 10px;
-            color: #483D8B;
-        }
-        
-        .contact-text {
-            flex: 1;
-        }
-        
-        .contact-text a {
-            color: #483D8B;
-            font-size: 1.1rem;
+            gap: 0.5rem;
+/*            padding: 0.5rem 1rem;*/
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+/*            color: white !important;*/
             text-decoration: none;
-        }
-        
-        .contact-text a:hover {
-            text-decoration: underline;
+            transition: background-color 0.3s;
+/*            margin: 0.25rem;*/
         }
         
         /* 内容区域样式 */
@@ -356,9 +340,6 @@
                 font-size: 0.85rem;
             }
             
-            .contact-text a {
-                font-size: 0.9rem;
-            }
             
             .publication-item {
                 padding: 10px;
@@ -417,7 +398,7 @@
                             <a href="mailto:shenhao@aust.edu.cn">shenhao@aust.edu.cn</a>
                         </div>
                     </div> -->
-                <div class="contact-item">
+                <!-- <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-graduation-cap"></i></div>
                     <div class="contact-text">
                         <a href="https://scholar.google.com/citations?user=l1MhibgAAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
@@ -434,11 +415,26 @@
                     <div class="contact-text">
                         <a href="https://www.researchgate.net/profile/Hao_Shen62" target="_blank">ResearchGate</a>
                     </div>
-                    <!-- <div class="contact-icon"><i class="fab fa-semanticscholar"></i></div>
-                    <div class="contact-text">
-                        <a href="https://www.semanticscholar.org/author/Hao-Shen/2110770224" target="_blank">Semantic Scholar</a>
-                    </div> -->
+                </div> -->
+                <!-- 社交链接独立一行 --> 
+                <div class="social-links" id="social-links">
+                    <a href="mailto:haoshenhs@gmail.com" class="social-btn">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=l1MhibgAAAAJ&hl=zh-CN" class="social-btn" target="_blank">
+                        <i class="fas fa-graduation-cap"></i> Google Scholar
+                    </a>
+                    <a href="https://github.com/it-hao" class="social-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://orcid.org/0000-0002-1945-4016" class="social-btn" target="_blank">
+                        <i class="fab fa-orcid"></i> ORCID
+                    </a>
+                    <a href="https://surl.amap.com/2XBh41n1y1HK" class="social-btn" target="_blank">
+                        <i class="fa-solid fa-map-location-dot"></i> Hefei, Anhui
+                    </a>
                 </div>
+
                 <!-- </div> -->
             </div>
         </div>
@@ -694,7 +690,7 @@
         </div>
     </div>
     <footer>
-        <p>Copyright © 2025 Hao Shen. All rights reserved.</p>
+        <p>This webpage is partly based on <a href="https://xianjie-guo.github.io/" target="_blank" style="color: #483D8B">Xianjie Guo</a>. Copyright © 2025 Hao Shen. All rights reserved.</p>
     </footer>
     <script>
         // 移动端菜单切换
