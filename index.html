@@ -11,7 +11,8 @@
             --primary: #2c3e50;
             --secondary: #3498db;
             --accent: #e74c3c;
-            --light: #ecf0f1;
+/*            --light: #ecf0f1;*/
+            --light: #FFF7FB;
             --dark: #2c3e50;
             --text: #333;
             --background: #f9f9f9;
@@ -44,8 +45,8 @@
             text-decoration: underline;
         }
 
+        /* 移动端菜单样式 */
         .menu {
-            /* background-color: #527bbd; #224b8d 33BBFF*/
             background-color: #527bbd;
             left: 0;
             top: 0;
@@ -54,31 +55,24 @@
             text-align: center;
             position: fixed;
             z-index: 100;
-            width: 100%
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .menu a {
-            font-size: 110%;
-            /*font-weight: bolder;*/
-            padding: 0.25ex 1.5ex;
+            font-size: 14px;
+            padding: 0.5ex 1ex;
             color: rgb(240,240,240);
             text-decoration: none;
             transition: .2s;
+            display: inline-block;
         }
 
-        .menu a:link {
+        .menu a:link, .menu a:visited {
             color: rgb(240,240,240);
-            /*color: #9e9e9e;*/
-        }
-
-        .menu a:visited {
-            color: rgb(240,240,240);
-            /*color: #9e9e9e;*/
         }
 
         .menu a:hover, .menu a:active {
             color: rgb(160,160,160);
-            /*color: #ffffff;*/
             text-decoration: none;
         }
         
@@ -89,6 +83,7 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: var(--shadow);
+            margin-top: 50px; /* 为顶部菜单留出空间 */
         }
         
         .profile-header {
