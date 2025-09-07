@@ -133,15 +133,22 @@
             line-height: 1.4;
         }
         
-        .profile-contact {
+        /*.profile-contact {
+            justify-content: center;
             margin-top: 20px;
-        }
+        }*/
         
         .contact-item {
             display: flex;
             align-items: center;
+            justify-content: center;
             margin-bottom: 10px;
             flex-wrap: wrap;
+            /*display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            width: 100%;*/
         }
         
         .contact-icon {
@@ -367,7 +374,7 @@
 <body>
     <div class="menu-container">
         <div class="menu">
-            <a href="#home">Home</a>
+            <a href="#">Home</a>
             <a href="#biography">Biography</a>
             <a href="#news">News</a>
             <a href="#publications">Publications</a>
@@ -378,7 +385,7 @@
         </div>
     </div>
 
-    <div id="home" class="container">
+    <div class="container">
         <div class="profile-header">
             <img src="./picture/hao_3.jpg" alt="Hao Shen" class="profile-img">
             
@@ -402,38 +409,37 @@
                     Research Areas: Deep Learning · Low-Level Vision · Image Restoration
                 </div>
                 
-                <div class="profile-contact">
-                    <div class="contact-item">
+                <!-- <div class="profile-contact"> -->
+                    <!-- <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-text">
-                            <a href="mailto:haoshenhs@gmail.com">haoshenhs@gmail.com</a> | 
+                            <a href="mailto:haoshenhs@gmail.com">haoshenhs@gmail.com</a>
                             <a href="mailto:shenhao@aust.edu.cn">shenhao@aust.edu.cn</a>
                         </div>
+                    </div> -->
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="contact-text">
+                        <a href="https://scholar.google.com/citations?user=l1MhibgAAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <div class="contact-text">
-                            <a href="https://scholar.google.com/citations?user=l1MhibgAAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
-                        </div>
-                        <div class="contact-icon"><i class="fab fa-github"></i></div>
-                        <div class="contact-text">
-                            <a href="https://github.com/it-hao" target="_blank">GitHub</a>
-                        </div>
-                        <div class="contact-icon"><i class="fab fa-orcid"></i></div>
-                        <div class="contact-text">
-                            <a href="https://orcid.org/0000-0002-1945-4016" target="_blank">ORCID</a>
-                        </div>
-                        <!-- <div class="contact-icon"><i class="fab fa-researchgate"></i></div> -->
-                        <!-- <div class="contact-text">
-                            <a href="https://www.researchgate.net/profile/Hao_Shen62" target="_blank">ResearchGate</a>
-                        </div> -->
-                        <!-- <div class="contact-icon"><i class="fab fa-semanticscholar"></i></div>
-                        <div class="contact-text">
-                            <a href="https://www.semanticscholar.org/author/Hao-Shen/2110770224" target="_blank">Semantic Scholar</a>
-                        </div> -->
+                    <div class="contact-icon"><i class="fab fa-github"></i></div>
+                    <div class="contact-text">
+                        <a href="https://github.com/it-hao" target="_blank">GitHub</a>
                     </div>
+                    <div class="contact-icon"><i class="fab fa-orcid"></i></div>
+                    <div class="contact-text">
+                        <a href="https://orcid.org/0000-0002-1945-4016" target="_blank">ORCID</a>
+                    </div>
+                    <div class="contact-icon"><i class="fab fa-researchgate"></i></div>
+                    <div class="contact-text">
+                        <a href="https://www.researchgate.net/profile/Hao_Shen62" target="_blank">ResearchGate</a>
+                    </div>
+                    <!-- <div class="contact-icon"><i class="fab fa-semanticscholar"></i></div>
+                    <div class="contact-text">
+                        <a href="https://www.semanticscholar.org/author/Hao-Shen/2110770224" target="_blank">Semantic Scholar</a>
+                    </div> -->
                 </div>
+                <!-- </div> -->
             </div>
         </div>
         
@@ -442,7 +448,9 @@
             <h2 class="section-title">Biography</h2>
             <p style="text-align:justify; text-justify:inter-ideograph;padding-right:36px;"> Hi, I am Hao Shen! I am currently a Lecturer at Anhui University of Science and Technology (AUST). Previously, I obtained my Ph.D. degree 🎉🎉🎉 from the <a href="https://ci.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em"> School of Computer Science and Information Engineering</a>, <a href="https://www.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em">Hefei University of Technology (HFUT)</a>, supervised by Professor <a href="https://scholar.google.com/citations?user=yELU6JcAAAAJ&hl=zh-CN" target="_blank">Zhong-Qiu Zhao👍</a>. 
             I was funded by the China Scholarship Council (CSC) and spent a one-year exchange study at Nanyang Technological University, Singapore, supervised by Prof. <a href="https://personal.ntu.edu.sg/exdjiang/default.htm" target="_blank">Xudong Jiang (IEEE Fellow) 🤞</a>. Meanwhile, I am also lucky to have opportunities to collaborate with <a href="https://henghuiding.github.io/" target="_blank" style="color: #483D8B; font-size: 1.em">Henghui Ding (Professor at FDU) 🤞</a> and <a href="https://yulunzhang.com/" target="_blank" style="color: #483D8B; font-size: 1.em">Yulun Zhang (Professor at SJTU) 🤞 </a>.
-            My research focuses on low-level vision tasks, including image super-resolution, image dehazing, and image denoising🔥🔥🔥.
+            My research focuses on low-level vision tasks, including image super-resolution, image dehazing, and image denoising🔥🔥🔥. </p>
+            <p style="text-align:justify; text-justify:inter-ideograph;padding-right:36px;">
+            If you'd like to work together or get in contact with me, please feel free to email <a href="mailto:haoshenhs@gmail.com">haoshenhs@gmail.com</a>.
             </p>
         </div>
         
