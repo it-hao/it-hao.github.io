@@ -308,20 +308,139 @@
             text-decoration: underline;
         }
 
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* 移动端汉堡菜单 */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: all 0.3s linear;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 768px) {
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
+            .menu {
+                padding: 10px 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
             }
             
-            .profile-img {
-                margin-right: 0;
-                margin-bottom: 20px;
+            .menu-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #527bbd;
+                flex-direction: column;
+                padding: 10px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+            
+            .menu-items.active {
+                display: flex;
+            }
+            
+            .menu-items a {
+                padding: 12px 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                text-align: left;
+            }
+            
+            .menu-toggle {
+                display: flex;
             }
             
             .container {
                 padding: 15px;
+                margin-top: 45px;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .profile-name {
+                font-size: 1.6rem;
+            }
+            
+            .profile-title {
+                font-size: 0.95rem;
+            }
+            
+            .contact-item {
+                justify-content: flex-start;
+            }
+            
+            .contact-text {
+                text-align: left;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .publication-title {
+                font-size: 1rem;
+            }
+            
+            .publication-links {
+                flex-direction: column;
+            }
+            
+            .publication-links a {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .profile-name {
+                font-size: 1.4rem;
+            }
+            
+            .contact-text a {
+                font-size: 0.9rem;
+            }
+            
+            .section {
+                padding: 10px;
+            }
+        }
+
+        /* 改善移动端触摸体验 */
+        @media (hover: none) {
+            a:hover {
+                text-decoration: none;
+            }
+            
+            .publication-links a:active {
+                background-color: #2980b9;
             }
         }
     </style>
@@ -337,6 +456,11 @@
         <a href="#projects">Projects</a>
         <a href="#resources">Resources</a>
     </div>
+    <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+    </button>
 
     <div id="home" class="container">
         <div class="profile-header">
@@ -644,5 +768,27 @@
     <footer>
         <p>Copyright © 2025 Hao Shen. All rights reserved.</p>
     </footer>
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const menuItems = document.getElementById('menuItems');
+            menuItems.classList.toggle('active');
+        });
+        
+        // 点击菜单项后关闭菜单（移动端）
+        document.querySelectorAll('.menu-items a').forEach(item => {
+            item.addEventListener('click', function() {
+                const menuItems = document.getElementById('menuItems');
+                if (window.innerWidth <= 768) {
+                    menuItems.classList.remove('active');
+                }
+            });
+        });
+        
+        // 改善移动端触摸体验
+        if ('ontouchstart' in window) {
+            document.documentElement.classList.add('touch-device');
+        }
+    </script>
 </body>
 </html>
