@@ -1,406 +1,648 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" href="jemdoc.css" type="text/css" />
-<title>Hao Shen</title>
-<!--<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon.png">  --->
-<link rel="icon" type="image/x-icon" href="favicon/favicon.ico"/>
-<style>
-    .container {
-        display: flex;
-        justify-content: space-between;
-    }
-    .imgtable img {
-        align-self: center;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hao Shen-AUST</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico"/>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --background: #f9f9f9;
+            --card-bg: #ffffff;
+            --border: #e0e0e0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/*            font-family: "comic sans ms", Bitstream Vera Sans, Tahoma, SimHei, sans-serif;*/
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            padding: 20px;
+/*            font-size: 1.2rem;*/
+        }
+
+        a, a > tt {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .menu {
+            /* background-color: #527bbd; #224b8d 33BBFF*/
+            background-color: #527bbd;
+            left: 0;
+            top: 0;
+            width: 100%;
+            padding: 12px 0px;
+            text-align: center;
+            position: fixed;
+            z-index: 100;
+            width: 100%
+        }
+
+        .menu a {
+            font-size: 110%;
+            /*font-weight: bolder;*/
+            padding: 0.25ex 1.5ex;
+            color: rgb(240,240,240);
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .menu a:link {
+            color: rgb(240,240,240);
+            /*color: #9e9e9e;*/
+        }
+
+        .menu a:visited {
+            color: rgb(240,240,240);
+            /*color: #9e9e9e;*/
+        }
+
+        .menu a:hover, .menu a:active {
+            color: rgb(160,160,160);
+            /*color: #ffffff;*/
+            text-decoration: none;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 可选阴影效果 */
+            margin-right: 30px;
+        }
+        
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .profile-name {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .profile-title {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .profile-contact {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .contact-icon {
+            width: 24px;
+            text-align: left;
+            margin-right: 10px;
+/*            color: var(--secondary);*/
+            color: #483D8B;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text a {
+/*            color: var(--secondary);*/
+            color: #483D8B;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+        
+        .contact-text a:hover {
+            color: #483D8B;
+            font-size: 1.1rem;
+            text-decoration: underline;
+        }
+        
+        /* 内容区域样式 */
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .subsection {
+            margin-bottom: 20px;
+        }
+        
+        .subsection-title {
+            color: var(--primary);
+/*            color: #483D8B;*/
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* 新闻列表样式 */
+        .news-list {
+            list-style: none;
+        }
+        .news-container {
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 5px;
+            background-color: none;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+        .news-item {
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+        
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        
+        .news-date {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        /* 出版物样式 */
+        .publication-list {
+            list-style: none;
+        }
+        
+        .publication-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+        
+        .publication-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .publication-authors {
+            color: #555;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        
+        .publication-venue {
+            color: #777;
+            margin-bottom: 8px;
+        }
+        
+        .publication-links a {
+            display: inline-block;
+            margin-right: 15px;
+/*            color: var(--secondary);*/
+            color: #483D8B;
+            text-decoration: none;
+        }
+        
+        .publication-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Academic Service */
+        .service-list {
+            columns: 2;
+            column-gap: 20px;
+            list-style: none;
+        }
+
+        .service-list li {
+            margin-bottom: 10px;
+            break-inside: avoid;
+            padding: 8px;
+            background-color: var(--light);
+            border-radius: 5px;
+        }
+
+        /* Honors & Projects */
+        .honors-list, .projects-list {
+            list-style: none;
+        }
+
+        .honors-list li, .projects-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .honors-list li:before, .projects-list li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Resources */
+        .resources-list {
+            list-style: none;
+        }
+
+        .resources-list li {
+            margin-bottom: 10px;
+        }
+
+        .resources-list a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .resources-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-
-<div id="layout-content">
-<!-- <div id="toptitle" style="text-align: center;">
-<h1><a>Welcome<a href="https://ggaq.aust.edu.cn/info/1097/1776.htm" target="_blank"></a></h1>
-</div> -->
-<table class="imgtable">
-<tr>
-    <td align="left", width="670"> <b><font size="+2">Hao Shen☕🏃🏾‍ ⛹️🏸🎱📙 </font> </b>  <br />
-  	 <!-- School of Public Safety and Emergency Management, Anhui University of Science and Technology (AUST) <br />  -->
-
-    <p style="margin-left:0px; display:flex; align-items:center;">
-    <img src="./picture/sign_2.png" height="60">
-      <span style="margin-left:8px;">
-        📧<a href="mailto:haoshenhs@gmail.com" style="color:#483D8B;">haoshenhs@gmail.com</a> or 
-        <a href="mailto:shenhao@aust.edu.cn" style="color:#483D8B;">shenhao@aust.edu.cn</a>
-      </span>
-    </p>
-
-    <p><a href="https://www.aust.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em"> Anhui University of Science and Technology (Hefei, Anhui)</a></br>
-    <a href="https://ggaq.aust.edu.cn/index.htm" target="_blank" style="color: #483D8B; font-size: 1.em"> School of Public Safety and Emergency Management</a></p>
-    [<a href="https://scholar.google.com/citations?user=l1MhibgAAAAJ&hl=zh-CN" target="_blank" style="color:#4285f4;">Google Scholar</a>] 
-    [<a href="https://orcid.org/0000-0002-1945-4016" target="_blank" style="color:#a5cd39;">ORCID</a>]
-    [<a href="https://www.researchgate.net/profile/Hao_Shen62" target="_blank" style="color:#fbbc05;">ResearchGate</a>] 
-    [<a href="https://github.com/it-hao" target="_blank" style="color:#34a853;">Github</a>]
-    </td>	 
-    <td align="right"><a href="https://ggaq.aust.edu.cn/info/1097/1776.htm"><img src="picture/hao_3.jpg" alt="alt text" width="145px" /></a> </td>
-</tr>
-<tr></tr>
-</table>
-
-
-
-<div id="Biography">
-<h2>Biography</h2>
-<p style="text-align:justify; text-justify:inter-ideograph;padding-right:36px;"> Hi, I am Hao Shen! I am currently a Lecturer at Anhui University of Science and Technology (AUST). Previously, I obtained my Ph.D. degree 😀😀😀🎉🎉🎉 from the School of Computer Science and Information Engineering, Hefei University of Technology (HFUT), supervised by Professor <a href="https://scholar.google.com/citations?user=yELU6JcAAAAJ&hl=zh-CN" target="_blank">Zhong-Qiu Zhao👍</a>. 
-</p>
-
-<p style="text-align:justify; text-justify:inter-ideograph;padding-right:36px;"> I was funded by the China Scholarship Council and spent a one-year exchange study at Nanyang Technological University, Singapore, supervised by Prof. <a href="https://personal.ntu.edu.sg/exdjiang/default.htm" target="_blank">Xudong Jiang (IEEE Fellow) 🤞</a>. Meanwhile, I am also lucky to have opportunities to collaborate with <a href="https://henghuiding.github.io/" target="_blank">Henghui Ding (Professor at FDU) 🤞</a> and <a href="https://yulunzhang.com/" target="_blank">Yulun Zhang (Professor at SJTU) 🤞 </a>.
-</p>
-<p style="text-align:justify; text-justify:inter-ideograph;padding-right:36px;"> My research focuses on low-level vision tasks, including image super-resolution, image dehazing, and image denoising🔥🔥.
-</p>
-</div>
-
-
-<div id="News">
-    <h2>News</h2>
-    <HR color=#F0F0F0 width="70%" SIZE=1>
-    <div style="max-height: 130px; overflow-y: auto; padding: 10px; border-left: 4px solid #2c3e50; margin: 0px 0;">
-        <style>
-          /* 为 Webkit 浏览器（Chrome, Safari, Edge）设置滚动条样式 */
-          div::-webkit-scrollbar {
-            width: 8px;
-          }
-
-          div::-webkit-scrollbar-track {
-            background: #e9ecef;
-            border-radius: 4px;
-          }
-
-          div::-webkit-scrollbar-thumb {
-            background: #2c3e50;
-            border-radius: 4px;
-          }
-
-          div::-webkit-scrollbar-thumb:hover {
-            background: #1a252f;
-          }
-
-          /* 为 Firefox 设置滚动条样式 */
-          div {
-            scrollbar-width: thin;
-            scrollbar-color: #2c3e50 #e9ecef;
-          }
-        </style>
-        <ul style="list-style-type: none; padding-left: 0; margin: 0;">
-            <li>[08, 2025] The Young Scientists Fund (C Class) of the National Natural Science Foundation of China (Grant No. 62502006) has been successfully approved. 😀😀😀</li> 
-            <li>[06, 2025] One paper is accepted by<b> IEEE TIP</b>.</li>   
-            <li>[05, 2025] One paper is accepted by<b> The Visual Computer</b>.</li>
-            <li>[01, 2025] I was supported by the<b> Youth Talents Support Project - Doctoral Student Special Program (CCF)</b> | 🎉 <font color="">首届中国科协青年人才托举工程-博士生专项 </font><a href="https://mp.weixin.qq.com/s/KhozoDHnFoNAwJiH4BLRRQ" target="_blank">[链接]</a>.</li>
-            <li>[09, 2024] One paper is accepted to <b> IEEE TGRS</b>. I was awarded the National Scholarship for Graduate Student 👍.</li>
-            <li>[02, 2024] One paper is accepted to <b> CVPR 2024</b>. Congrats. to <a href="https://xiaofeng-life.github.io/" target="_blank">Xiaofeng 👍</a>.</li>
-            <li>[11, 2023] One paper is accepted to <b> IEEE TGRS</b>.</li>
-            <li>[11, 2023] One paper is accepted to <b> PR</b>.</li>
-            <li>[07, 2023] I will serve as a visiting Ph.D. Student in NTU, supervisor by Prof. <a href="https://personal.ntu.edu.sg/exdjiang/default.htm" target="_blank">Xudong Jiang 👍</a>.</li>
-            <li>[07, 2023] One paper is accepted to <b>ACM MM 2023</b>.</li>
-            <li>[11, 2022] One paper is accepted by <b>AAAI 2023</b>.</li>
-            <li>[07, 2022] One paper is accepted to <b>PR</b>.  </li>
-            </ul>
-    </div> </br>
-</div>
-
-
-<div id="Publications">
-<h2>Publications</h2> 
-<ul>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://ieeexplore.ieee.org/document/11040130" target="_blank"> <b>Spatial Frequency Modulation Network for Efficient Image Dehazing </b></a> &nbsp
-        <a href="https://github.com/it-hao/SFMN" target="_blank">[Code]</a> </br>
-        <b>Hao Shen</b>, Henghui Ding, Yulun Zhang, Zhong-Qiu Zhao*, Xudong Jiang</br>
-        <i>IEEE Transactions on Image Processing (<b>TIP</b>)</i>, 2025. <font color="#DA1212">(CCF A)</font>
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://ieeexplore.ieee.org/abstract/document/10679156/" target="_blank"> <b> Spatial-Frequency Adaptive Remote Sensing Image Dehazing with Mixture of Experts </b></a> &nbsp
-        <a href="https://github.com/it-hao/SFAN" target="_blank">[Code]</a> </br>
-        <b>Hao Shen</b>, Henghui Ding, Yulun Zhang, Xiaofeng Cong, Zhong-Qiu Zhao*, Xudong Jiang</br>
-        <i>IEEE Transactions on Geoscience and Remote Sensing (<b>TGRS</b>)</i>, 2024. <font color="#DA1212">(CCF B)</font>
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://arxiv.org/pdf/2308.06998.pdf" target="_blank"> <b> Mutual Information-driven Triple Interaction Network for Efficient Image Dehazing </b></a> &nbsp
-        <a href="https://github.com/it-hao/MITNet" target="_blank">[Code]</a> </br>
-        <b>Hao Shen</b>, Zhong-Qiu Zhao*, Yulun Zhang, Zhao Zhang* </br>
-        <i>ACM International Conference on Multimedia (<b>ACM MM </b>) </i>, 2023, <font color="#DA1212">Oral Presentation</font>. <font color="#DA1212">(CCF A)</font>
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 5px 0px 0px  0px">
-        <a href="https://arxiv.org/pdf/2211.12051.pdf" target="_blank"> <b> Adaptive Dynamic Filtering Network for Image Denoising </b></a> &nbsp
-        <a href="https://github.com/it-hao/ADFNet" target="_blank">[Code]</a> </br>
-        <b>Hao Shen</b>, Zhong-Qiu Zhao*, Wandi Zhang </br>
-        <i>AAAI Conference on Artificial Intelligence (<b>AAAI</b>)</i>, 2023. <font color="#DA1212">(CCF A)</font>
-    </li>   
-  </ul>
-  <ul>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://www.sciencedirect.com/science/article/pii/S0031320322003909" target="_blank"><b> Joint Operation and Attention Block Search for Lightweight Image Restoration </b></a> &nbsp
-        <a href="https://github.com/it-hao/JsNet" target="_blank">[Code]</a> </br>
-        <b>Hao Shen</b>, Zhong-Qiu Zhao*, Wenrui Liao, Weidong Tian, De-Shuang Huang </br>
-        <i>Pattern Recognition (<b>PR</b>)</i>, 2022. <font color="#DA1212">(CCF B)</font>
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 15px 0px 0px 0px">
-        <a href="https://ebooks.iospress.nl/pdf/doi/10.3233/FAIA200416" target="_blank">
-            <b> Mid-weight Image Super-resolution with Bypass Connection Attention Network </b>
-        </a>
-        &nbsp<a href="https://it-hao.github.io/" target="_blank">[Code]</a> </br>
-        <b>Hao Shen</b>, Zhong-Qiu Zhao* </br>
-        <i>European Conference on Artificial Intelligence  (<b>ECAI</b>)</i>, 2020, <font color="#DA1212">Oral Presentation</font>. <font color="#DA1212">(CCF B)</font>
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 15px 0px 0px 0px">
-        <a href="https://www.sciencedirect.com/science/article/pii/S0031320323008397" target="_blank">
-            <b> Global Routing Between Capsules </b>
-        </a>
-        &nbsp<a href="https://github.com/cwpl/GR-CapsNet" target="_blank">[Code]</a></br>
-        Ran Chen, <b>Hao Shen</b>, Zhong-Qiu Zhao*, Yi Yang </br>
-        <i>Pattern Recognition (<b>PR</b>)</i>, 2023. <font color="#DA1212">(CCF B)</font>
-    </li> 
-  </ul>
-  <ul>           
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://ieeexplore.ieee.org/abstract/document/9428408/" target="_blank">
-            <b> Residual Attention Block Search for Lightweight Image Super-Resolution </b>
-        </a>
-        &nbsp<a href="https://github.com/it-hao/JsNet" target="_blank">[Code]</a></br>
-        Zhong-Qiu Zhao*, Wenrui Liao, <b>Hao Shen</b>, Weidong Tian </br>
-        <i>International Conference on Multimedia and Expo (<b>ICME</b>)</i>, 2021, <font color="#DA1212">Oral Presentation </font>. <font color="#DA1212">(CCF B)</font>
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://ieeexplore.ieee.org/abstract/document/10347243" target="_blank">
-            <b> Rethinking Pan-sharpening via Spectral-band Modulation </b>
-        </a>
-        &nbsp<a href="https://github.com/ez4lionky/SSMNet/" target="_blank">[Code]</a> </br>
-        Xinyang Liu, Junming Hou, Xiaofeng Cong, <b>Hao Shen</b>, Liangjian Deng, Jianwei You </br>
-        <i>IEEE Transactions on Geoscience and Remote Sensing (<b>TGRS</b>)</i>, 2023. <font color="#DA1212">(CCF B)</font>
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://arxiv.org/pdf/2403.18548" target="_blank">
-            <b> A Semi-supervised Nighttime Dehazing Baseline with Spatial-Frequency Aware and Realistic Brightness Constraint </b>
-        </a>
-        &nbsp<a href="https://github.com/Xiaofeng-life/SFSNiD" target="_blank">[Code]</a></br>
-        Xiaofeng Cong, Jie Gui, Jing Zhang, Junming Hou, <b>Hao Shen</b> </br>
-        <i> IEEE Conference on Computer Vision and Pattern Recognition(<b>CVPR</b>)</i>, 2024. <font color="#DA1212">(CCF A)</font>
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="" target="_blank">
-            <b> Test Time Adaptation via Self-Training with Future Information </b>
-        </a>
-        &nbsp<a href="https://github.com/Xiaofeng-life/SFSNiD" target="_blank">[Code]</a></br>
-        Xin Wen, <b>Hao Shen</b>, Zhong-Qiu Zhao* </br>
-        <i>Journal of Electronic Imaging</i>, 2024
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="" target="_blank">
-            <b> Contextual Feature Modulation Network for Efficient Super-Resolution </b>
-        </a>
-        &nbsp<a href="https://it-hao.github.io/index.html" target="_blank">[Code]</a></br>
-        Wandi Zhang, <b>Hao Shen</b>, Biao Zhang, Weidong Tian, Zhong-Qiu Zhao</br>
-        <i>International Conference on Intelligent Computing</i>, 2024
-    </li> 
-  </ul>
-  <ul>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="" target="_blank">
-            <b> Adaptive Branch Selection for Accelerate Image Super-Resolution </b>
-        </a>
-        &nbsp<a href="https://it-hao.github.io/index.html" target="_blank">[Code]</a></br>
-        Cheng Ding, Zhong-Qiu Zhao, <b>Hao Shen</b>, Xiufeng Liu</br>
-        <i>The Visual Computer</i>, 2025
-    </li> 
-  </ul>
-</div>
-
-<div id="Service">
-<h2>Academic Service</h2>
-<!-- <h3 style="margin: 5px 0px 0px 10px">  &nbsp;Conference Reviewer:</h3> -->
-<ul>
-    <li style="margin: 5px 0px 0px 0px">
-        ACM International Conference on Multimedia (ACM MM) <a href="https://www.acmmm2023.org/" target="_blank" rel="nofollow" style="color:#DA1212;">2023</a>, <a href="https://2024.acmmm.org/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2024</a>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        International Joint Conference on Artificial Intelligence (IJCAI) <a href="https://ijcai24.org/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2024</a>, <a href="https://ijcai25.org/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2025</a>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        AAAI Conference on Artificial Intelligence (AAAI) <a href="https://aaai.org/Conferences/AAAI-22/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2022</a>, <a href="https://aaai.org/Conferences/AAAI-23/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2023</a>, <a href="https://aaai.org/Conferences/AAAI-24/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2024</a>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        European Conference on Artificial Intelligence (ECAI) <a href="https://ecai2023.eu/" target="_blank" rel="nofollow" style="color:#DA1212;">2023</a>, <a href="https://ecai2024.eu/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2024</a>, <a href="https://ecai2025.eu/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2025</a>
-    </li>
-<!-- </ul> -->
-<!-- <h3 style="margin: 5px 0px 0px 10px">  Journal Reviewer:</h3> -->
-<!-- <ul> -->
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Image Processing (TIP)</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6046" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Multimedia (TMM)</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=76" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6221021" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Systems, Man and Cybernetics: Systems (TSMC)</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7433297" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Emerging Topics in Computational Intelligence (TETCI)</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://www.sciencedirect.com/journal/information-fusion" target="_blank" rel="nofollow" style="color:black;">
-            Information Fusion (INFFUS)
-        </a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence" target="_blank" rel="nofollow" style="color:black;">
-            Engineering Applications of Artificial Intelligence (EAAI)
-        </a> <br>
-    </li> 
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://www.sciencedirect.com/journal/knowledge-based-systems" target="_blank" rel="nofollow" style="color:black;">Knowledge-Based Systems (KBS)</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://www.sciencedirect.com/journal/signal-processing" target="_blank" rel="nofollow" style="color:black;">Signal Processing</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://www.sciencedirect.com/journal/neurocomputing" target="_blank" rel="nofollow" style="color:black;">Neurocomputing</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://www.mi-research.net/" target="_blank" rel="nofollow" style="color:black;">Machine Intelligence Research (MIR)</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://digital-library.theiet.org/journal/iet-ipr" target="_blank" rel="nofollow" style="color:black;">IET Image Processing (IET-IPR)</a> <br>
-    </li>
-    <li style="margin: 5px 0px 0px 0px">
-        <a href="https://link.springer.com/journal/11042" target="_blank" rel="nofollow" style="color:black;">Multimedia Tools and Applications (MTA)</a> <br>
-    </li>
-     
-    
-    
-</ul>
-</div>
-
-<div id="Awards and Honors">
-<h2>Honors and Awards</h2>
-<ul>
-<li style="margin: 5px 0px 0px 0px"><font color="#DA1212">2025:</font> China Association for Science and Technology Young Talent Support Project - Doctoral Student Special Program | 中国科协博士生专项计划 (中国计算机学会) <br>
-<li style="margin: 5px 0px 0px 0px"><font color="#DA1212">2024:</font> National Scholarship for Graduate Student, China | 博士研究生国家奖学金<br>
-<li style="margin: 5px 0px 0px 0px"><font color="#DA1212">2023:</font> Chinese Scholarship Council Funding, China | CSC奖学金<br>
-<li style="margin: 5px 0px 0px 0px"><font color="#DA1212">2021:</font> Outstanding Graduate, Hefei University of Technology | 校优秀毕业生<br>
-<li style="margin: 5px 0px 0px 0px"><font color="#DA1212">2020:</font> National Scholarship for Graduate Student, China | 硕士研究生国家奖学金<br>
-<li style="margin: 5px 0px 0px 0px"><font color="#DA1212">2018:</font> Outstanding Graduate, Anhui Province | 安徽省优秀毕业生 <br>
-<li style="margin: 5px 0px 0px 0px"><font color="#DA1212">2017:</font> National Encouragement Scholarship, China | 国家励志奖学金<br>
-<li style="margin: 5px 0px 0px 0px"><font color="#DA1212">2015:</font> National Encouragement Scholarship, China | 国家励志奖学金<br>
-</ul>
-</div>
-
-<div id="Projects">
-<h2>Projects</h2>
-<ul>
-<li style="margin: 5px 0px 0px 0px">XXXXX的任务自适应图像复原方法研究 (No. 62502006), 2026.01-2028.12, 主持 </br> 国家自然科学基金青年项目(C类) (The Young Scientists Fund of National Natural Science Foundation of China)</li>
-<li style="margin: 5px 0px 0px 0px">XXXXX的一体化图像复原方法研究 (No. 2025yjrc0015), 2025.04-2027.04, 主持 </br> 校级高层次人才科研启动基金 (Scientific Research Foundation for High-Level Talents of AUST)</li>
-</ul>
-</div>
-
-<div id="Resources">
-<h2>Resources</h2>
-<ul>
-<li style="margin: 5px 0px 0px 0px">
-    <a href="https://ccfddl.com/" target="_blank" rel="nofollow" style="color: #483D8B"> CCF Deadlines </a> <br>
-</li>
-
-<li style="margin: 5px 0px 0px 0px">
-    <a href="https://aideadlin.es/?sub=ML,CV,CG,NLP,RO,SP,DM,AP,KR,HCI" target="_blank" rel="nofollow" style="color: #483D8B"> AI Conference Deadlines </a> <br>
-</li>
-
-<li style="margin: 5px 0px 0px 0px">
-    <a href="https://ccf.atom.im/" target="_blank" rel="nofollow" style="color: #483D8B" > ccf.atom.im </a> <br>
-</li>
-
-<li style="margin: 5px 0px 0px 0px">
-    <a href="https://csrankings.org/#/index?all&sg" target="_blank" rel="nofollow" style="color: #483D8B"> Computer Science Rankings </a> <br>
-</li>
-
-<li style="margin: 5px 0px 0px 0px">
-    <a href="http://portal.core.edu.au/conf-ranks/" target="_blank" rel="nofollow" style="color: #483D8B"> Conference Portal </a> <br>
-</li>
-
-<li style="margin: 5px 0px 0px 0px">
-    <a target="_blank" href="resources/中国计算机学会推荐国际学术会议和期刊目录-2022.pdf" style="color: #483D8B">中国计算机学会推荐国际学术会议和期刊目录</a> <br>
-</li>
-
-<li style="margin: 5px 0px 0px 0px">
-    <a target="_blank" href="resources/中国计算机学会推荐中文科技期刊目录.pdf" style="color: #483D8B">中国计算机学会推荐中文科技期刊目录</a> <br>
-</li>
-
-<li style="margin: 5px 0px 0px 0px">
-    <a target="_blank" href="resources/中国计算机学会推荐计算领域高质量科技期刊分级目录.pdf" style="color: #483D8B">中国计算机学会推荐计算领域高质量科技期刊分级目录</a> <br>
-</li>
-
-<li style="margin: 5px 0px 0px 0px">
-    <a target="_blank" href="resources/清华大学计算机学科群推荐学术会议和期刊列表-2019.pdf" style="color: #483D8B">清华大学计算机学科群推荐学术会议和期刊列表</a> <br>
-</li>
-
-<li style="margin: 5px 0px 0px 0px">
-    <a target="_blank" href="resources/中国科协期刊分类-2023.pdf" style="color: #483D8B">中国科协高质量科技期刊分级目录总汇-2023 </a> <br>
-</li>
-
-</ul>
-</div>
-
-<h2>Map My Visitors</h2>
-
-<div id="Maps" style="text-align: center;">
-    <div style="display: inline-block; max-width: 500px; width: 100%;">
-        <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=ffffff&w=557&t=tt&d=Ag-DLUyxYprkvEFDlsL7QoXf2fUFQ41ogt-7CsEBSto&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff"></script>
+    <div class="menu"> 
+        <a href="#home">Home</a>
+        <a href="#biography">Biography</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#services">Services</a>
+        <a href="#awards">Awards</a>
+        <a href="#projects">Projects</a>
+        <a href="#resources">Resources</a>
     </div>
-</div>
+
+    <div id="home" class="container">
+        <div class="profile-header">
+            <a href="https://ggaq.aust.edu.cn/info/1097/1776.htm" target="_blank"> <img src="picture/hao_3.jpg" alt="hao" class="profile-img"> </a>
+            
+            <div class="profile-info">
+                <h1 class="profile-name">
+                    <p style="margin-left:0px; display:flex; align-items:center;">
+                     <img src="./picture/sign.png" height="55">
+                      <span style="margin-left:8px;">
+                        Hao Shen ☕🏃‍♂️⛹️🏸🎱📙
+                      </span>
+                    </p>
+
+                </h1>
+                
+                <div class="profile-title">
+                    Lecturer | <a href="https://www.aust.edu.cn/" target="_blank" style="color: #483D8B"> Anhui University of Science and Technology</a> | <a href="https://ggaq.aust.edu.cn/index.htm" target="_blank" style="color: #483D8B"> School of Public Safety and Emergency Management</a>
+                </div>
+                
+                <div class="profile-title">
+                    Research Areas: Deep Learning · Low-Level Vision · Image Restoration
+                </div>
+                
+                <div class="profile-contact">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <a href="mailto:haoshenhs@gmail.com">haoshenhs@gmail.com</a> | 
+                            <a href="mailto:shenhao@aust.edu.cn">shenhao@aust.edu.cn</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="contact-text">
+                            <a href="https://scholar.google.com/citations?user=l1MhibgAAAAJ&hl=zh-CN" target="_blank">Google Scholar</a>
+                        </div>
+                        <div class="contact-icon"><i class="fab fa-github"></i></div>
+                        <div class="contact-text">
+                            <a href="https://github.com/it-hao" target="_blank">GitHub</a>
+                        </div>
+                        <div class="contact-icon"><i class="fab fa-orcid"></i></div>
+                        <div class="contact-text">
+                            <a href="https://orcid.org/0000-0002-1945-4016" target="_blank">ORCID</a>
+                        </div>
+                        <div class="contact-icon"><i class="fab fa-researchgate"></i></div>
+                        <div class="contact-text">
+                            <a href="https://www.researchgate.net/profile/Hao_Shen62" target="_blank">ResearchGate</a>
+                        </div>
+                        <!-- <div class="contact-icon"><i class="fab fa-semanticscholar"></i></div>
+                        <div class="contact-text">
+                            <a href="https://www.semanticscholar.org/author/Hao-Shen/2110770224" target="_blank">Semantic Scholar</a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 个人简介 -->
+        <div class="section" id="biography">
+            <h2 class="section-title">Biography</h2>
+            <p style="text-align:justify; text-justify:inter-ideograph;padding-right:36px;"> Hi, I am Hao Shen! I am currently a Lecturer at Anhui University of Science and Technology (AUST). Previously, I obtained my Ph.D. degree 🎉🎉🎉 from the <a href="https://ci.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em"> School of Computer Science and Information Engineering</a>, <a href="https://www.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em">Hefei University of Technology (HFUT)</a>, supervised by Professor <a href="https://scholar.google.com/citations?user=yELU6JcAAAAJ&hl=zh-CN" target="_blank">Zhong-Qiu Zhao👍</a>. 
+            I was funded by the China Scholarship Council (CSC) and spent a one-year exchange study at Nanyang Technological University, Singapore, supervised by Prof. <a href="https://personal.ntu.edu.sg/exdjiang/default.htm" target="_blank">Xudong Jiang (IEEE Fellow) 🤞</a>. Meanwhile, I am also lucky to have opportunities to collaborate with <a href="https://henghuiding.github.io/" target="_blank" style="color: #483D8B; font-size: 1.em">Henghui Ding (Professor at FDU) 🤞</a> and <a href="https://yulunzhang.com/" target="_blank" style="color: #483D8B; font-size: 1.em">Yulun Zhang (Professor at SJTU) 🤞 </a>.
+            My research focuses on low-level vision tasks, including image super-resolution, image dehazing, and image denoising🔥🔥.
+            </p>
+        </div>
+        
+        <!-- 新闻 -->
+        <div class="section" id="news">
+            <h2 class="section-title">News</h2>
+            <div class="news-container">
+                <div class="news-item">
+                    <time>[08, 2025]</time> The Young Scientists Fund (C Class) has been successfully approved.
+                </div>
+                <div class="news-item">
+                    <time>[06, 2025]</time> One paper is accepted by <b>IEEE TIP</b>.
+                </div>
+                <div class="news-item">
+                    <time>[05, 2025]</time> One paper is accepted by <b>The Visual Computer</b>.
+                </div>
+                <div class="news-item">
+                    <time>[01, 2025]</time> I was supported by the <b>Youth Talents Support Project - Doctoral Student Special Program </b> | 🎉 <a href="https://mp.weixin.qq.com/s/KhozoDHnFoNAwJiH4BLRRQ" target="_blank" style="color: #483D8B">首届中国科协青年人才托举工程-博士生专项</a>.
+                </div>
+                <div class="news-item">
+                    <time>[09, 2024]</time> One paper is accepted to <b>IEEE TGRS</b>. I was awarded the National Scholarship for Graduate Student.
+                </div>
+                <div class="news-item">
+                    <time>[02, 2024]</time> One paper is accepted to <b>CVPR 2024</b>. Congrats. to <a href="https://xiaofeng-life.github.io/" target="_blank" style="color: #483D8B">Xiaofeng</a>.
+                </div>
+            </div>
+        </div>
+        
+        <!-- 代表性论文 -->
+        <div class="section" id="publications">
+            <h2 class="section-title">Selected Publications</h2>
+            
+            <div class="publication-item">
+                <div class="publication-title">Spatial Frequency Modulation Network for Efficient Image Dehazing</div>
+                <div class="publication-authors"><b>Hao Shen</b>, Henghui Ding, Yulun Zhang, Zhong-Qiu Zhao*, Xudong Jiang</div>
+                <div class="publication-venue">IEEE Transactions on Image Processing (TIP), 2025</div>
+                <div class="publication-links">
+                    <a href="https://ieeexplore.ieee.org/document/11040130" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://github.com/it-hao/SFMN" target="_blank"><i class="fas fa-code"></i> Code</a>
+                </div>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">Spatial-Frequency Adaptive Remote Sensing Image Dehazing with Mixture of Experts</div>
+                <div class="publication-authors"><b>Hao Shen</b>, Henghui Ding, Yulun Zhang, Xiaofeng Cong, Zhong-Qiu Zhao*, Xudong Jiang</div>
+                <div class="publication-venue">IEEE Transactions on Geoscience and Remote Sensing (TGRS), 2024</div>
+                <div class="publication-links">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10679156/" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://github.com/it-hao/SFAN" target="_blank"><i class="fas fa-code"></i> Code</a>
+                </div>
+            </div>
+            
+            <div class="publication-item">
+                <div class="publication-title">Mutual Information-driven Triple Interaction Network for Efficient Image Dehazing</div>
+                <div class="publication-authors"><b>Hao Shen</b>, Zhong-Qiu Zhao*, Yulun Zhang, Zhao Zhang*</div>
+                <div class="publication-venue">ACM International Conference on Multimedia (ACM MM), 2023, Oral Presentation</div>
+                <div class="publication-links">
+                    <a href="https://arxiv.org/pdf/2308.06998.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://github.com/it-hao/MITNet" target="_blank"><i class="fas fa-code"></i> Code</a>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">Adaptive Dynamic Filtering Network for Image Denoising</div>
+                <div class="publication-authors"><b>Hao Shen</b>, Zhong-Qiu Zhao*, Wandi Zhang</div>
+                <div class="publication-venue">AAAI Conference on Artificial Intelligence (AAAI), 2023, </div>
+                <div class="publication-links">
+                    <a href="https://arxiv.org/pdf/2211.12051.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://github.com/it-hao/ADFNet" target="_blank"><i class="fas fa-code"></i> Code</a>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">Joint Operation and Attention Block Search for Lightweight Image Restoration</div>
+                <div class="publication-authors"><b>Hao Shen</b>, Zhong-Qiu Zhao*, Wenrui Liao, Weidong Tian, De-Shuang Huang</div>
+                <div class="publication-venue">Pattern Recognition (PR), 2022, </div>
+                <div class="publication-links">
+                    <a href="https://www.sciencedirect.com/science/article/pii/S0031320322003909" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://github.com/it-hao/JsNet" target="_blank"><i class="fas fa-code"></i> Code</a>
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">Mid-weight Image Super-resolution with Bypass Connection Attention Network</div>
+                <div class="publication-authors"><b>Hao Shen</b>, Zhong-Qiu Zhao*</div>
+                <div class="publication-venue">European Conference on Artificial Intelligence (ECAI), 2020 </div>
+                <div class="publication-links">
+                    <a href="https://ebooks.iospress.nl/pdf/doi/10.3233/FAIA200416" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://it-hao.github.io/" target="_blank"><i class="fas fa-code"></i> Code</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Academic Service Section -->
+        <div class="section" id="services">
+            <h2 class="section-title">Academic Service</h2>
+            <ul class="service-list">
+                <li style="margin: 5px 0px 0px 0px">
+                    ACM International Conference on Multimedia (ACM MM) <a href="https://www.acmmm2023.org/" target="_blank" rel="nofollow" style="color:#DA1212;">2023</a>, <a href="https://2024.acmmm.org/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2024</a>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    International Joint Conference on Artificial Intelligence (IJCAI) <a href="https://ijcai24.org/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2024</a>, <a href="https://ijcai25.org/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2025</a>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    AAAI Conference on Artificial Intelligence (AAAI) <a href="https://aaai.org/Conferences/AAAI-22/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2022</a>, <a href="https://aaai.org/Conferences/AAAI-23/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2023</a>, <a href="https://aaai.org/Conferences/AAAI-24/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2024</a>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    European Conference on Artificial Intelligence (ECAI) <a href="https://ecai2023.eu/" target="_blank" rel="nofollow" style="color:#DA1212;">2023</a>, <a href="https://ecai2024.eu/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2024</a>, <a href="https://ecai2025.eu/" target="_blank" rel="nofollow" style="color:#DA1212;"> 2025</a>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=83" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Image Processing (TIP)</a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6046" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Multimedia (TMM)</a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=76" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)</a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6221021" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Systems, Man and Cybernetics: Systems (TSMC)</a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7433297" target="_blank" rel="nofollow" style="color:black;">IEEE Transactions on Emerging Topics in Computational Intelligence (TETCI)</a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://www.sciencedirect.com/journal/information-fusion" target="_blank" rel="nofollow" style="color:black;">
+                        Information Fusion (INFFUS)
+                    </a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence" target="_blank" rel="nofollow" style="color:black;">
+                        Engineering Applications of Artificial Intelligence (EAAI)
+                    </a> <br>
+                </li> 
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://www.sciencedirect.com/journal/knowledge-based-systems" target="_blank" rel="nofollow" style="color:black;">Knowledge-Based Systems (KBS)</a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://www.sciencedirect.com/journal/signal-processing" target="_blank" rel="nofollow" style="color:black;">Signal Processing</a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://www.sciencedirect.com/journal/neurocomputing" target="_blank" rel="nofollow" style="color:black;">Neurocomputing</a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://www.mi-research.net/" target="_blank" rel="nofollow" style="color:black;">Machine Intelligence Research (MIR)</a> <br>
+                </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://digital-library.theiet.org/journal/iet-ipr" target="_blank" rel="nofollow" style="color:black;">IET Image Processing (IET-IPR)</a> <br>
+                </li>
+                <!-- <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://link.springer.com/journal/11042" target="_blank" rel="nofollow" style="color:black;">Multimedia Tools and Applications (MTA)</a> <br>
+                </li> -->
+            </ul>
+        </div>
+
+        
+        <!-- 荣誉奖项 -->
+        <!-- Honors and Awards Section -->
+        <div class="section" id="awards">
+            <h2 class="section-title">Honors and Awards</h2>
+            <ul class="honors-list">
+                <li><strong>2025:</strong> China Association for Science and Technology Young Talent Support Project - Doctoral Student Special Program | 中国科协博士生专项计划 (CCF)</li>
+                <li><strong>2024:</strong> National Scholarship for Graduate Student, China | 博士研究生国家奖学金</li>
+                <li><strong>2023:</strong> Chinese Scholarship Council Funding, China | CSC奖学金</li>
+                <li><strong>2021:</strong> Outstanding Graduate, Hefei University of Technology | 校优秀毕业生</li>
+                <li><strong>2020:</strong> National Scholarship for Graduate Student, China | 硕士研究生国家奖学金</li>
+                <li><strong>2018:</strong> Outstanding Graduate, Anhui Province | 安徽省优秀毕业生</li>
+                <li><strong>2017:</strong> National Encouragement Scholarship, China | 国家励志奖学金</li>
+                <li><strong>2015:</strong> National Encouragement Scholarship, China | 国家励志奖学金</li>
+            </ul>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="section" id="projects">
+            <h2 class="section-title">Projects</h2>
+            <ul class="projects-list">
+                <li>XXXXX的任务自适应图像复原方法研究 (No. 62502006), 2026.01-2028.12, 主持<br>国家自然科学基金青年项目(C类) (The Young Scientists Fund of National Natural Science Foundation of China)</li>
+                <li>XXXXX的一体化图像复原方法研究 (No. 2025yjrc0015), 2025.04-2027.04, 主持<br>校级高层次人才科研启动基金 (Scientific Research Foundation for High-Level Talents of AUST)</li>
+            </ul>
+        </div>
+
+        <!-- Resources Section -->
+        <div id="resources" class="section">
+            <h2 class="section-title">Resources</h2>
+            <ul class="service-list">
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://ccfddl.com/" target="_blank" rel="nofollow" style="color: #483D8B"> CCF Deadlines </a> <br>
+                </li>
+
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://aideadlin.es/?sub=ML,CV,CG,NLP,RO,SP,DM,AP,KR,HCI" target="_blank" rel="nofollow" style="color: #483D8B"> AI Conference Deadlines </a> <br>
+                </li>
+
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://ccf.atom.im/" target="_blank" rel="nofollow" style="color: #483D8B" > ccf.atom.im </a> <br>
+                </li>
+
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://csrankings.org/#/index?all&sg" target="_blank" rel="nofollow" style="color: #483D8B"> Computer Science Rankings </a> <br>
+                </li>
+
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="http://portal.core.edu.au/conf-ranks/" target="_blank" rel="nofollow" style="color: #483D8B"> Conference Portal </a> <br>
+                </li>
+
+                <li style="margin: 5px 0px 0px 0px">
+                    <a target="_blank" href="resources/中国计算机学会推荐国际学术会议和期刊目录-2022.pdf" style="color: #483D8B">中国计算机学会推荐国际学术会议和期刊目录</a> <br>
+                </li>
+
+                <li style="margin: 5px 0px 0px 0px">
+                    <a target="_blank" href="resources/中国计算机学会推荐中文科技期刊目录.pdf" style="color: #483D8B">中国计算机学会推荐中文科技期刊目录</a> <br>
+                </li>
+
+                <li style="margin: 5px 0px 0px 0px">
+                    <a target="_blank" href="resources/中国计算机学会推荐计算领域高质量科技期刊分级目录.pdf" style="color: #483D8B">中国计算机学会推荐计算领域高质量科技期刊分级目录</a> <br>
+                </li>
+
+                <li style="margin: 5px 0px 0px 0px">
+                    <a target="_blank" href="resources/清华大学计算机学科群推荐学术会议和期刊列表-2019.pdf" style="color: #483D8B">清华大学计算机学科群推荐学术会议和期刊列表</a> <br>
+                </li>
+
+                <li style="margin: 5px 0px 0px 0px">
+                    <a target="_blank" href="resources/中国科协期刊分类-2023.pdf" style="color: #483D8B">中国科协高质量科技期刊分级目录总汇-2023 </a> <br>
+                </li>
+            </ul>
+        </div>
 
 
-
-
-<!-- <div id="Maps">
-<h2>Map My Visitors</h2>
-<script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=Ag-DLUyxYprkvEFDlsL7QoXf2fUFQ41ogt-7CsEBSto&cl=ffffff&w=a"></script>  
-</ul>
-</div> -->
-
-<div id="footer">
-<!-- <div id="footer-text"> -->
-<p style="text-align:center;">Copyright @ 2025-06 Hao Shen. All rights reserved.</p>
-<!-- </div> -->
-</div>
-  
+        <!-- Visitor Map -->
+        <div id="Maps" class="section">
+            <h2 class="section-title">Visitor Map</h2>
+            <div style="text-align: center;">
+                <div style="display: inline-block; max-width: 500px; width: 100%;">
+                    <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=ffffff&w=557&t=tt&d=Ag-DLUyxYprkvEFDlsL7QoXf2fUFQ41ogt-7CsEBSto&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Copyright © 2025 Hao Shen. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-
-  
-  
-  
-
-  
-  
