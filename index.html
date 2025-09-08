@@ -127,12 +127,19 @@
             line-height: 1.4;
         }
 
-        .profile-title h1 {
+        .profile-title h1{
+            height: 55px;
+            width: auto;  /* 保持比例 */
             font-size: 1.5 rem;
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .profile-title h1 img{
+            height: 55px;
+            width: auto;  /* 保持比例 */
         }
         
         /* 社交链接独立一行，居中 */
@@ -303,14 +310,17 @@
                 font-size: 0.95rem;
             }
 
-            .profile-title h1 img{
-                width: 35px;
-                height: auto;  /* 保持比例 */
+            .profile-title h1{
                 font-size: 1.2 rem;
                 margin-bottom: 0.5rem;
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
+            }
+
+            .profile-title h1 img{
+                height: 55px;
+                width: auto;  /* 保持比例 */
             }
             
             .social-links {
@@ -392,7 +402,7 @@
             
             <div class="profile-info">
                 <div class="profile-title">
-                    <h1><img src="./picture/sign.png" height="55"> (Hao Shen) ☕🏃‍♂️⛹️🏸🎱📙</h1>
+                    <h1><img src="./picture/sign.png"> (Hao Shen) ☕🏃‍♂️⛹️🏸🎱📙</h1>
                     Lecturer | <a href="https://www.aust.edu.cn/" target="_blank">Anhui University of Science and Technology</a> | <a href="https://ggaq.aust.edu.cn/index.htm" target="_blank">School of Public Safety and Emergency Management</a>
                 </div>
 
