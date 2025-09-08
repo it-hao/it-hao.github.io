@@ -1,0 +1,416 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --light: #FFF7FB;
+    --dark: #2c3e50;
+    --text: #333;
+    --background: #f9f9f9;
+    --card-bg: #ffffff;
+    --border: #e0e0e0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    --container-width: 90%;
+    --max-container-width: 1100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #483D8B;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 顶部菜单 */
+.menu-container {
+    width: 100%;
+    background-color: #527bbd;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menu {
+    width: var(--container-width);
+    max-width: var(--max-container-width);
+    margin: 0 auto;
+    padding: 12px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    font-size: 1.1rem;
+    padding: 0.5ex 1ex;
+    color: rgb(240,240,240);
+    text-decoration: none;
+    transition: .2s;
+    display: inline-block;
+}
+
+.menu a:hover {
+    color: rgb(200,200,200);
+}
+
+/* 移动端菜单优化 */
+@media (max-width: 768px) {
+    .menu {
+        padding: 10px 0;
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    
+    .menu::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .menu a {
+        white-space: nowrap;
+        font-size: 0.95rem;
+        padding: 8px 12px;
+    }
+}
+
+/* 主容器 */
+.container {
+    width: var(--container-width);
+    max-width: var(--max-container-width);
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.profile-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--secondary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-right: 30px;
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-title {
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-title h1{
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile-title h1 img{
+    height: 35px;
+    width: auto;  /* 保持比例 */
+}
+
+.profile-title p{
+    font-size: 1.0rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+/* 社交链接独立一行，居中 */
+.social-links {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+}
+
+/* 社交按钮样式优化 */
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin: 0.25rem;
+    padding: 8px 12px;
+    background-color: #f0f4ff;
+    border: 1px solid #d0d8e8;
+}
+
+.social-btn:hover {
+    background-color: #e0e8f8;
+}
+
+/* 内容区域样式 */
+.section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--secondary);
+}
+
+/* 新闻列表样式 */
+.news-container {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+.news-item {
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+/* 出版物样式 */
+.publication-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: var(--light);
+    border-radius: 8px;
+}
+
+.publication-title {
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.publication-authors {
+    color: #555;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.publication-venue {
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.publication-links a {
+    display: inline-block;
+    margin-right: 15px;
+    color: #483D8B;
+    text-decoration: none;
+}
+
+.publication-links a:hover {
+    text-decoration: underline;
+}
+
+/* Academic Service */
+.service-list {
+    columns: 2;
+    column-gap: 20px;
+    list-style: none;
+}
+
+.service-list li {
+    margin-bottom: 10px;
+    break-inside: avoid;
+    padding: 8px;
+    background-color: var(--light);
+    border-radius: 5px;
+}
+
+/* Honors & Projects */
+.honors-list, .projects-list {
+    list-style: none;
+}
+
+.honors-list li, .projects-list li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.honors-list li:before, .projects-list li:before {
+    content: "•";
+    color: var(--secondary);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* 访问统计样式 */
+.stats-counter {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    :root {
+        --container-width: 95%;
+    }
+    
+    .container {
+        padding: 20px;
+        margin-top: 60px;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .profile-title {
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .profile-title h1{
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .profile-title h1 img{
+        height: 30px;
+        width: auto;  
+    }
+
+    .profile-title p{
+        font-size: 0.95rem;
+        text-align: center;
+    }
+    
+    .social-links {
+        font-size: 0.95rem;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .social-btn {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .publication-title {
+        font-size: 1rem;
+    }
+    
+    .service-list {
+        columns: 1;
+    }
+    
+    .menu {
+        padding: 8px 0;
+    }
+    
+    .menu a {
+        font-size: 1rem;
+        padding: 4px 8px;
+    }
+    
+    /* 移动端优化出版物项 */
+    .publication-item {
+        padding: 12px;
+    }
+    
+    .publication-links a {
+        margin-right: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .profile-title {
+        font-size: 0.85rem;
+    }
+
+    .profile-title h1 {
+        font-size: 1
