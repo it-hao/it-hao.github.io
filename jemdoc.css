@@ -10,6 +10,7 @@ html {
 body {
 /*  font-family: Georgia, serif;*/
   font-family: Arial, sans-serif;
+/*  font-family: "comic sans ms", Bitstream Vera Sans, Tahoma, SimHei, sans-serif;*/
   color: #000;
   background-color: #ffffff;
   text-align:left; /* for IE */
@@ -67,6 +68,7 @@ tt {
 pre, tt {
 	font-size: 90%;
 	font-family: monaco, monospace;
+/*    font-family: "comic sans ms", Bitstream Vera Sans, Tahoma, SimHei, sans-serif;*/
 }
 
 a, a > tt {
