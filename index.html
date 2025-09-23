@@ -121,13 +121,12 @@
                 <button id="btn-zh">中文</button>
             </div>
 
+
             <div class="biography-content">
                 <!-- 英文版本 -->
                 <div id="biography-en" class="language-version active">
-                    <p style="text-align:justify; text-justify:inter-ideograph;padding-right:10px;"> Hao Shen is currently a Lecturer at Anhui University of Science and Technology (AUST). Previously, I obtained my Ph.D. degree 🎉🎉🎉 from the <a href="https://ci.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em"> School of Computer Science and Information Engineering</a>, <a href="https://www.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em">Hefei University of Technology (HFUT)</a> in December 2024, supervised by Professor <a href="https://scholar.google.com/citations?user=yELU6JcAAAAJ&hl=zh-CN" target="_blank">Zhong-Qiu Zhao👍</a>. From October 2023 to October 2024, I was funded by the China Scholarship Council (CSC) and spent a one-year exchange study at Nanyang Technological University, Singapore, supervised by Prof. <a href="https://personal.ntu.edu.sg/exdjiang/default.htm" target="_blank">Xudong Jiang (IEEE Fellow) 🤞</a>. During this time, I am also lucky to have opportunities to collaborate with <a href="https://henghuiding.github.io/" target="_blank" style="color: #483D8B; font-size: 1.em">Henghui Ding (Professor at FDU) 🤞</a> and <a href="https://yulunzhang.com/" target="_blank" style="color: #483D8B; font-size: 1.em">Yulun Zhang (Professor at SJTU) 🤞 </a>. </p>
-                    <p style="text-align:justify; text-justify:inter-ideograph;padding-right:10px;">
-                    My research focuses on Artificial Intelligence and Computer Vision, with a focus on low-level vision tasks, including image super-resolution, image dehazing, and image denoising ✨✨✨. In recent years, I have published over 10 academic papers in international conferences and journals, including IEEE TIP, IEEE TGRS, PR, CVPR, AAAI, ACM MM, and ECAI, six of which he was the first author of (including three CCF-A papers).
-                    If you'd like to work together or get in contact with me, please feel free to email 🥰🥰🥰 <a href="mailto:haoshenhs@gmail.com">haoshenhs@gmail.com</a>.
+                    <p style="text-align:justify; text-justify:inter-ideograph;padding-right:10px;"> I am currently a Lecturer at Anhui University of Science and Technology (AUST). Previously, I obtained my Ph.D. degree 🎉🎉🎉 from the <a href="https://ci.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em"> School of Computer Science and Information Engineering</a>, <a href="https://www.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em">Hefei University of Technology (HFUT)</a> in December 2024, supervised by Professor <a href="https://scholar.google.com/citations?user=yELU6JcAAAAJ&hl=zh-CN" target="_blank">Zhong-Qiu Zhao👍</a>. From October 2023 to October 2024, I was funded by the China Scholarship Council (CSC) and spent a one-year exchange study at Nanyang Technological University, Singapore, supervised by Prof. <a href="https://personal.ntu.edu.sg/exdjiang/default.htm" target="_blank">Xudong Jiang (IEEE Fellow) 🤞</a>. During this time, I am also lucky to have opportunities to collaborate with <a href="https://henghuiding.github.io/" target="_blank" style="color: #483D8B; font-size: 1.em">Henghui Ding (Professor at FDU) 🤞</a> and <a href="https://yulunzhang.com/" target="_blank" style="color: #483D8B; font-size: 1.em">Yulun Zhang (Professor at SJTU) 🤞 </a>. My research focuses on Artificial Intelligence and Computer Vision, with a focus on low-level vision tasks, including image super-resolution, image dehazing, and image denoising ✨✨✨. In recent years, I have published over 10 academic papers in international conferences and journals, including IEEE TIP, IEEE TGRS, PR, CVPR, AAAI, ACM MM, and ECAI, six of which he was the first author of (including three CCF-A papers).</p>
+                    <p style="text-align:justify; text-justify:inter-ideograph;padding-right:10px;"> If you'd like to work together 🤝 or get in contact with me, please feel free to email <a href="mailto:haoshenhs@gmail.com">haoshenhs@gmail.com</a>.
                     </p>
                 </div>
                 
@@ -397,26 +396,88 @@
     <script>
         // 语言切换功能
         document.addEventListener('DOMContentLoaded', function() {
+            const toggleSwitch = document.getElementById('language-toggle');
+                if (!toggleSwitch) return;
+                
+                toggleSwitch.addEventListener('change', function() {
+                    const bioContent = document.getElementById('bio-content');
+                    if (this.checked) {
+                        // Switch to Chinese
+                        bioContent.textContent = window.bioContentCN;
+                        bioContent.setAttribute('lang', 'zh-CN');
+                    } else {
+                        // Switch to English
+                        bioContent.textContent = window.bioContentEN;
+                        bioContent.setAttribute('lang', 'en');
+                    }
+                });
+        });
+    </script>
+    <script>
+        // 语言切换功能 - 优化移动端体验
+        document.addEventListener('DOMContentLoaded', function() {
             const btnEn = document.getElementById('btn-en');
             const btnZh = document.getElementById('btn-zh');
             const enContent = document.getElementById('biography-en');
             const zhContent = document.getElementById('biography-zh');
             
-            // 英文按钮点击事件
+            // 切换语言函数
+            function switchLanguage(lang) {
+                if (lang === 'en') {
+                    btnEn.classList.add('active');
+                    btnZh.classList.remove('active');
+                    enContent.classList.add('active');
+                    zhContent.classList.remove('active');
+                } else {
+                    btnZh.classList.add('active');
+                    btnEn.classList.remove('active');
+                    zhContent.classList.add('active');
+                    enContent.classList.remove('active');
+                }
+            }
+            
+            // 点击事件 - 使用更可靠的点击处理
             btnEn.addEventListener('click', function() {
-                btnEn.classList.add('active');
-                btnZh.classList.remove('active');
-                enContent.classList.add('active');
-                zhContent.classList.remove('active');
+                switchLanguage('en');
             });
             
-            // 中文按钮点击事件
             btnZh.addEventListener('click', function() {
-                btnZh.classList.add('active');
-                btnEn.classList.remove('active');
-                zhContent.classList.add('active');
-                enContent.classList.remove('active');
+                switchLanguage('zh');
             });
+            
+            // 移动端触摸优化
+            if ('ontouchstart' in window) {
+                // 添加触摸反馈
+                const buttons = [btnEn, btnZh];
+                
+                buttons.forEach(button => {
+                    // 触摸开始
+                    button.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        this.classList.add('touch-active');
+                    }, { passive: false });
+                    
+                    // 触摸结束
+                    button.addEventListener('touchend', function(e) {
+                        e.preventDefault();
+                        this.classList.remove('touch-active');
+                        
+                        // 延迟执行切换，确保触摸反馈可见
+                        setTimeout(() => {
+                            if (this.id === 'btn-en') {
+                                switchLanguage('en');
+                            } else {
+                                switchLanguage('zh');
+                            }
+                        }, 50);
+                    }, { passive: false });
+                    
+                    // 触摸取消（如滑动离开按钮）
+                    button.addEventListener('touchcancel', function() {
+                        this.classList.remove('touch-active');
+                    });
+                });
+            }
             
             // 移动端菜单优化（原有代码保持不变）
             if ('ontouchstart' in window) {
