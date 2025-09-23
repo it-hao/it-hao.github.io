@@ -108,6 +108,7 @@ a:hover {
     margin-bottom: 30px;
 }
 
+
 .profile-header {
     display: flex;
     flex-wrap: wrap;
@@ -198,7 +199,55 @@ a:hover {
     font-size: 1.5rem;
     margin-bottom: 15px;
     padding-bottom: 8px;
-    border-bottom: 2px solid var(--secondary);
+    border-bottom: 3px solid var(--secondary);
+}
+
+/* 添加语言切换按钮样式 */
+.language-toggle {
+/*    margin-left: auto; */
+    display: flex;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+    width: fit-content;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.language-toggle button {
+    border: none;
+    padding: 8px 16px;
+    background: #f0f4ff;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #483D8B;
+}
+
+.language-toggle button.active {
+    background: #527bbd;
+    color: white;
+}
+
+.language-toggle button:first-child {
+    border-right: 1px solid #ddd;
+}
+
+.biography-content {
+    position: relative;
+}
+
+.language-version {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.language-version.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* 新闻列表样式 */
@@ -366,6 +415,7 @@ footer {
         padding: 6px 10px;
         font-size: 0.9rem;
     }
+
     
     .section-title {
         font-size: 1.3rem;
