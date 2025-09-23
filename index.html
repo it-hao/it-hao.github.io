@@ -6,6 +6,54 @@
     <title>Hao Shen - AUST</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 添加语言切换按钮样式 */
+        .language-toggle {
+            display: flex;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+            width: fit-content;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .language-toggle button {
+            border: none;
+            padding: 8px 16px;
+            background: #f0f4ff;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: #483D8B;
+        }
+        
+        .language-toggle button.active {
+            background: #527bbd;
+            color: white;
+        }
+        
+        .language-toggle button:first-child {
+            border-right: 1px solid #ddd;
+        }
+        
+        .biography-content {
+            position: relative;
+        }
+        
+        .language-version {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .language-version.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
     <div class="menu-container">
@@ -53,14 +101,41 @@
         </div>
         
         <!-- 个人简介 -->
-        <div class="section" id="biography">
+        <!-- <div class="section" id="biography">
             <h2 class="section-title">Biography</h2>
+
             <p style="text-align:justify; text-justify:inter-ideograph;padding-right:10px;"> Hi, I am Hao Shen! I am currently a Lecturer at Anhui University of Science and Technology (AUST). Previously, I obtained my Ph.D. degree 🎉🎉🎉 from the <a href="https://ci.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em"> School of Computer Science and Information Engineering</a>, <a href="https://www.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em">Hefei University of Technology (HFUT)</a>, supervised by Professor <a href="https://scholar.google.com/citations?user=yELU6JcAAAAJ&hl=zh-CN" target="_blank">Zhong-Qiu Zhao👍</a>. 
             I was funded by the China Scholarship Council (CSC) and spent a one-year exchange study at Nanyang Technological University, Singapore, supervised by Prof. <a href="https://personal.ntu.edu.sg/exdjiang/default.htm" target="_blank">Xudong Jiang (IEEE Fellow) 🤞</a>. Meanwhile, I am also lucky to have opportunities to collaborate with <a href="https://henghuiding.github.io/" target="_blank" style="color: #483D8B; font-size: 1.em">Henghui Ding (Professor at FDU) 🤞</a> and <a href="https://yulunzhang.com/" target="_blank" style="color: #483D8B; font-size: 1.em">Yulun Zhang (Professor at SJTU) 🤞 </a>.
             My research focuses on low-level vision tasks, including image super-resolution, image dehazing, and image denoising🔥🔥🔥. </p>
             <p style="text-align:justify; text-justify:inter-ideograph;padding-right:10px;">
             If you'd like to work together or get in contact with me, please feel free to email <a href="mailto:haoshenhs@gmail.com">haoshenhs@gmail.com</a>.
             </p>
+        </div> -->
+        <!-- 个人简介 -->
+        <div class="section" id="biography">
+            <h2 class="section-title">Biography </h2>
+            
+            <!-- 添加语言切换按钮 -->
+            <div class="language-toggle">
+                <button id="btn-en" class="active">English</button>
+                <button id="btn-zh">中文</button>
+            </div>
+
+            <div class="biography-content">
+                <!-- 英文版本 -->
+                <div id="biography-en" class="language-version active">
+                    <p style="text-align:justify; text-justify:inter-ideograph;padding-right:10px;"> Hao Shen is currently a Lecturer at Anhui University of Science and Technology (AUST). Previously, I obtained my Ph.D. degree 🎉🎉🎉 from the <a href="https://ci.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em"> School of Computer Science and Information Engineering</a>, <a href="https://www.hfut.edu.cn/" target="_blank" style="color: #483D8B; font-size: 1.em">Hefei University of Technology (HFUT)</a> in December 2024, supervised by Professor <a href="https://scholar.google.com/citations?user=yELU6JcAAAAJ&hl=zh-CN" target="_blank">Zhong-Qiu Zhao👍</a>. From October 2023 to October 2024, I was funded by the China Scholarship Council (CSC) and spent a one-year exchange study at Nanyang Technological University, Singapore, supervised by Prof. <a href="https://personal.ntu.edu.sg/exdjiang/default.htm" target="_blank">Xudong Jiang (IEEE Fellow) 🤞</a>. During this time, I am also lucky to have opportunities to collaborate with <a href="https://henghuiding.github.io/" target="_blank" style="color: #483D8B; font-size: 1.em">Henghui Ding (Professor at FDU) 🤞</a> and <a href="https://yulunzhang.com/" target="_blank" style="color: #483D8B; font-size: 1.em">Yulun Zhang (Professor at SJTU) 🤞 </a>. </p>
+                    <p style="text-align:justify; text-justify:inter-ideograph;padding-right:10px;">
+                    My research focuses on Artificial Intelligence and Computer Vision, with a focus on low-level vision tasks, including image super-resolution, image dehazing, and image denoising ✨✨✨. In recent years, I have published over 10 academic papers in international conferences and journals, including IEEE TIP, IEEE TGRS, PR, CVPR, AAAI, ACM MM, and ECAI, six of which he was the first author of (including three CCF-A papers).
+                    If you'd like to work together or get in contact with me, please feel free to email 🥰🥰🥰 <a href="mailto:haoshenhs@gmail.com">haoshenhs@gmail.com</a>.
+                    </p>
+                </div>
+                
+                <!-- 中文版本 -->
+                <div id="biography-zh" class="language-version">
+                    <p style="text-align:justify; text-justify:inter-ideograph;padding-right:10px;"> 现任安徽理工大学公共安全与应急管理学院讲师，2024年12月毕业于合肥工业大学计算机与信息学院，获工学博士学位（导师：<a href="https://scholar.google.com/citations?user=yELU6JcAAAAJ&hl=zh-CN" target="_blank">赵仲秋教授</a>🤞）。2023年10月至2024年10月作为国家公派联合培养博士生在新加坡南洋理工大学电气与电子工程学院从事合作研究（导师：<a href="https://personal.ntu.edu.sg/exdjiang/default.htm" target="_blank">Jiang Xudong教授（IEEE Fellow）🤞</a>）。在此期间，很荣幸有机会与<a href="https://henghuiding.github.io/" target="_blank" style="color: #483D8B; font-size: 1.em">丁恒辉教授（复旦大学）🤞</a>和<a href="https://yulunzhang.com/" target="_blank" style="color: #483D8B; font-size: 1.em">张宇伦教授（上海交通大学）🤞</a>进行合作。入选<a href="https://mp.weixin.qq.com/s/KhozoDHnFoNAwJiH4BLRRQ" target="_blank" style="color: #483D8B">2024年度中国科协青年人才托举工程博士生专项计划</a>（托举学会：中国计算机学会），荣获2024年博士研究生国家奖学金和2021年硕士研究生国家奖学金。主要从事人工智能、计算机视觉研究，重点关注低层视觉任务，包括图像超分辨率、图像去雾和图像去噪✨✨✨等。近年来在IEEE TIP、IEEE TGRS、PR、CVPR、AAAI、ACM MM、ECAI等国际会议和期刊上发表10余篇学术论文，其中以第一作者身份发表6篇论文（含CCF-A类论文3篇）。主持国家自然科学基金青年项目（C类）、校级人才引进项目等，参与国家自然科学基金面上项目、安徽省重点研发、广西重点研发等项目。</p>
+                </div>
+            </div>
         </div>
         
         <!-- 新闻 -->
@@ -72,9 +147,6 @@
                 </div>
                 <div class="news-item">
                     <time>[06, 2025]</time> One paper is accepted by <b>IEEE TIP</b>.
-                </div>
-                <div class="news-item">
-                    <time>[05, 2025]</time> One paper is accepted by <b>The Visual Computer</b>.
                 </div>
                 <div class="news-item">
                     <time>[01, 2025]</time> I was supported by the <b>Youth Talents Support Project - Doctoral Student Special Program </b> | 🎉 <a href="https://mp.weixin.qq.com/s/KhozoDHnFoNAwJiH4BLRRQ" target="_blank" style="color: #483D8B">首届中国科协青年人才托举工程-博士生专项</a>.
@@ -210,6 +282,9 @@
                 <li style="margin: 5px 0px 0px 0px">
                     <a href="https://digital-library.theiet.org/journal/iet-ipr" target="_blank" rel="nofollow" style="color:black;">IET Image Processing (IET-IPR)</a> <br>
                 </li>
+                <li style="margin: 5px 0px 0px 0px">
+                    <a href="https://www.sciencedirect.com/journal/image-and-vision-computing/" target="_blank" rel="nofollow" style="color:black;">Image and Vision Computing (IVC)</a> <br>
+                </li>
             </ul>
         </div>
 
@@ -307,6 +382,47 @@
             }
             
             // 移动端菜单优化
+            const menuItems = document.querySelectorAll('.menu a');
+            menuItems.forEach(item => {
+                item.addEventListener('touchstart', function() {
+                    this.classList.add('touch-active');
+                });
+                
+                item.addEventListener('touchend', function() {
+                    this.classList.remove('touch-active');
+                });
+            });
+        });
+    </script>
+    <script>
+        // 语言切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnEn = document.getElementById('btn-en');
+            const btnZh = document.getElementById('btn-zh');
+            const enContent = document.getElementById('biography-en');
+            const zhContent = document.getElementById('biography-zh');
+            
+            // 英文按钮点击事件
+            btnEn.addEventListener('click', function() {
+                btnEn.classList.add('active');
+                btnZh.classList.remove('active');
+                enContent.classList.add('active');
+                zhContent.classList.remove('active');
+            });
+            
+            // 中文按钮点击事件
+            btnZh.addEventListener('click', function() {
+                btnZh.classList.add('active');
+                btnEn.classList.remove('active');
+                zhContent.classList.add('active');
+                enContent.classList.remove('active');
+            });
+            
+            // 移动端菜单优化（原有代码保持不变）
+            if ('ontouchstart' in window) {
+                document.documentElement.classList.add('touch-device');
+            }
+            
             const menuItems = document.querySelectorAll('.menu a');
             menuItems.forEach(item => {
                 item.addEventListener('touchstart', function() {
